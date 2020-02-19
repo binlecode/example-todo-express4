@@ -16,6 +16,12 @@ need to install mongodb as application repository:
 brew tap mongodb/brew
 # install (head is 4.2 at the moment)
 brew install mongodb-community
+# to start mongodb
+brew services start mongodb-community
+# to stop mongodb
+brew services stop mongodb-community
+# tail mongodb log
+tail -f /usr/local/var/log/mongodb/mongo.log
 # for GUI query support
 brew cask install robo-3t
 ```
