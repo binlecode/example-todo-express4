@@ -1,15 +1,32 @@
 
-## intro
+## Intro
 
 This simple express app serves as RESTful data endpoint for todo CRUDs.
 The data service is consumed by an Angular todo SPA: https://github.com/binlecode/example-todo-angular8
 
+## Environment
 
 Node version
 - nodejs 12.14.1
 - npm 6.13.4
 
-need to install mongodb as application repository:
+Also need mongodb to be installed as application repository.
+
+## Basic code structure
+
+`server.js` => `todo.routes` => `todo.controller` => `todo.model` => `mongoose`
+
+## API usage
+
+See `app/routes/todo.routes.js` for todo CRUDs REST endpoint details.
+
+## Todos
+
+- [ ] deployment with / without docker
+
+## Dependency installation
+
+Steps to install mongodb as application repository:
 
 ```bash
 # need to tap brew for mongodb repo
@@ -34,11 +51,6 @@ npm install cors --save
 # in package.json, a `dev` script is defined to run nodemon
 npm run dev
 ```
-
-## basic code structure
-
-`server.js` => `todo.routes` => `todo.controller` => `todo.model` => `mongoose`
-
 
 
 
