@@ -85,6 +85,38 @@ exports.update = (req, res) => {
 };
 
 /**
+ * PATCH /todos/:id
+ * patch endpoint is dedicated to partial update
+ */
+exports.patch = (req, res) => {
+    if (!req.body) {
+        return res.status(400).send({message: 'Todo request body can not be empty'});
+    }
+    let fields = { completed: false };
+    if (req.body.completed != null) {
+        fields.completed = req.body.completed;
+    }
+    if (req.body.title) {
+        fields.title = req.body.title;
+    }
+    // console.log("updating todo " + req.params.id + ", fields: ");
+    // for (const k in fields) {
+    //     console.log(`  ${k} - ${fields[k]}`);
+    // }
+    Todo.findByIdAndUpdate(req.params.id, fields, {new: true}).then(todo => {
+        if (!todo) {
+            return res.status(404).send({message: 'Todo not found by id ' + req.params.id})
+        }
+        res.send(todo);
+    }).catch(err => {
+        if (err.kind === 'ObjectId') {
+            return res.status(404).send({message: 'Todo not found by id ' + req.params.id});
+        }
+        return res.status(500).send({message: 'Error updating todo by id ' + req.params.id});
+    });
+}
+
+/**
  * DELETE /todos/:id
  */
 exports.delete = (req, res) => {

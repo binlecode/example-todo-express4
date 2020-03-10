@@ -9,5 +9,7 @@ module.exports = (app) => {
 
     app.put('/todos/:id', todosController.update);
 
+    app.patch('/todos/:id', todosController.patch);
+
     app.delete('/todos/:id', todosController.delete);
 };
