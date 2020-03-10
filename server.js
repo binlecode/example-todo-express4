@@ -1,13 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const morgan = require('morgan');
+
 // const MongoClient = require('mongodb').MongoClient;
 
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 
 const app = express();
-app.use(cors());  // enable cors for SPA app to call
+// enable cors for SPA app to call
+app.use(cors());  
+// use morgan to log http traffic
+app.use(morgan('combined'))
 
 // parse requests of content-type - application/x-www-form-urlencoded
 // The urlencoded method within body-parser tells body-parser to extract data from 
