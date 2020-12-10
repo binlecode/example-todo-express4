@@ -18,6 +18,16 @@ Also need mongodb to be installed as application repository.
 
 ## API usage
 
+Todo resource endpoint and methods:
+```
+GET /todos
+GET /todos/:id
+POST /todos
+PUT /todos/:id
+PATCH /todos/:id
+DELETE /todos/:id
+```
+
 See `app/routes/todo.routes.js` for todo CRUDs REST endpoint details.
 
 ## Todos
@@ -44,15 +54,11 @@ brew cask install robo-3t
 ```
 
 ```bash
-npm install express body-parser mongodb mongoose --save
-npm install nodemon --save-dev
-# add cors support
-npm install cors --save
+# check package.json for dependeny libs
+npm install 
 # in package.json, a `dev` script is defined to run nodemon
 npm run dev
 ```
-
-
 
 
 ## reference tutorial
